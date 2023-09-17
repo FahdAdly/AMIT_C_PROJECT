@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1694986461 source:e:\diploma embbeded_c\project\c_project\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1694988716 e:\diploma embbeded_c\project\c_project\sdb.h
+	"STD.h"
+
+1694987036 source:e:\diploma embbeded_c\project\c_project\sdb.c
+	<stdio.h>
+	<stdlib.h>
+	"STD.h"
+	"SDB.h"
+
+1694979933 e:\diploma embbeded_c\project\c_project\std.h
+
+1694988355 source:e:\diploma embbeded_c\project\c_project\sdbapp.c
+	<stdio.h>
+	<stdlib.h>
+	"STD.h"
+	"SDB.h"
+
