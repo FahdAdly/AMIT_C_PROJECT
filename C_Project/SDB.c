@@ -3,6 +3,9 @@
 #include"STD.h"
 #include"SDB.h"
 
+//=========================================
+
+/*This Function  Test if the DateBase capacity is Full or There are a Space for additional Entry  */
 
 bool SDB_IsFull(uint8 count)
 {
@@ -18,6 +21,8 @@ bool SDB_IsFull(uint8 count)
 }
 
 //=========================================
+
+/* This Function  Test if the ID Is Exist in DateBase Or No*/
 
 bool SDB_IsIdExist(uint32 T1)
 {
@@ -43,6 +48,8 @@ bool SDB_IsIdExist(uint32 T1)
 
 //=========================================
 
+/*This Function Count Number of Entry Student  */
+
 uint8 SDB_GetUsedSize()
 {
     uint8 count=0;
@@ -53,6 +60,8 @@ uint8 SDB_GetUsedSize()
 }
 
 //=========================================
+
+/* This Function add a New Student Date Entry If There are a Space in The DateBase */
 
 bool SDB_AddEntry(uint32 ID,uint32 year,uint32 *SN,uint32 *grades)
 {
@@ -100,18 +109,13 @@ bool SDB_AddEntry(uint32 ID,uint32 year,uint32 *SN,uint32 *grades)
 
 //=========================================
 
-uint32 SDB_DeleteEntry(uint32 ID)
+/*This Function Delete Student Date From DateBase Using Student ID */
+
+void SDB_DeleteEntry(uint32 ID)
 {
     struct SimpleDb *temp = Head;
     struct SimpleDb *p=NULL;
-    // Deletion at Begin
-    if (temp != NULL && temp->Student_ID == ID)
-    {
-        Head = temp->Next;
-        free(temp);
-        printf("ID Data Deleted Successfully\n");
-        return 0;
-    }
+
     while (temp != NULL && temp->Student_ID != ID)
     {
         p = temp;
@@ -120,15 +124,18 @@ uint32 SDB_DeleteEntry(uint32 ID)
     if (temp == NULL)
     {
         printf("ID Data does not Exist\n");
-        return -1;
-        p->Next = temp->Next;
+    }
+    if (temp != NULL && temp->Student_ID == ID)
+    {
+        Head = temp->Next;
         free(temp);
         printf("ID Data Deleted Successfully\n");
-        return 0;
     }
 }
 
 //=========================================
+
+/*This Function  Take Student ID and Test If ID is Exist in DateBase and Print It's Date  */
 
 bool SDB_ReadEntry(uint32 ID)
 {
@@ -166,16 +173,18 @@ bool SDB_ReadEntry(uint32 ID)
 
 //=========================================
 
+/*This Function read Student IDs form DateBase and Store it in List(Array) and Print It  */
+
 void SDB_GetList(uint8 * count, uint32 * list[MAX_SIZE])
 {
     struct SimpleDb *temp = Head;
-    for(uint32 i=0; i<count; i++) //reading the list of IDs
+    for(uint32 i=0; i<count; i++)
     {
         list[i]=temp->Student_ID;
         temp=temp->Next;
     }
     printf("ID'S\n");
-    for(uint32 i=0; i<count; i++)   //printing the list of IDs
+    for(uint32 i=0; i<count; i++)
     {
         printf("%d %d\n",i+1,list[i]);
     }

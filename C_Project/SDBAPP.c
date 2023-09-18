@@ -6,14 +6,18 @@
  uint32 ID,year,T1;
  extern struct SimpleDb *Head= NULL;
 
+
+/*This Function Is Super Loop Function Which Show User List Of Orders and Ask Him To Choose an Order From The List
+and  It pass user choice To SDB_action Function To Do User Order It Will Be Run Until The User Choose To Exit  */
+
 void SDB_APP(void)
  {
      while (true)
          {
-         printf("\n =============================================== \n");
-         printf("\n ==== Welcome to AMIT-C Programming Project ==== \n");
-         printf("\n ==== AUTHOR : FAHD ADLY ABO HAMADY         ==== \n");
-         printf("\n =============================================== \n");
+         printf("\n=============================================== \n");
+         printf("==== Welcome to AMIT-C Programming Project ==== \n");
+         printf("==== DEV : FAHD ADLY ABO HAMADY            ==== \n");
+         printf("=============================================== \n");
          printf(" To Edd Entry, Enter 1 \n");
          printf(" To Get Used Size in DataBase, Enter 2 \n");
          printf(" To Read Student Data, Enter 3 \n");
@@ -22,7 +26,7 @@ void SDB_APP(void)
          printf(" To Delete Student Data, Enter 6 \n");
          printf(" To Check is DataBase is Full, Enter 7 \n");
          printf(" To Exit Enter 0\n");
-         printf("\n =============================================== \n");
+         printf("=============================================== \n");
          printf("\t\t Enter your Choice\n");
 
          uint8 choice;
@@ -31,6 +35,9 @@ void SDB_APP(void)
          SDB_action(choice);
          }
  }
+
+
+/*This Function  Take User Choice and Select Which Function I Will Run  */
 
  void SDB_action(uint8 choice)
  {
